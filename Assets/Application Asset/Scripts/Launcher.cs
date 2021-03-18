@@ -15,14 +15,24 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings(); 
     }
 
+    #region Joinning Server
     public override void OnConnectedToMaster()
-    { 
-        connectedScreen.SetActive(true);
+    {
+        PhotonNetwork.JoinLobby(TypedLobby.Default);
     }
 
+    public override void OnJoinedLobby()
+    {
+        if (disconnectedScreen.activeSelf) disconnectedScreen.SetActive(false);
+        connectedScreen.SetActive(true);
+    }
+    #endregion
+
+    #region Leaving Server
     public override void OnDisconnected(DisconnectCause cause)
     {
-        connectedScreen.SetActive(false);
+        if(connectedScreen.activeSelf)  connectedScreen.SetActive(false);
         disconnectedScreen.SetActive(true);
     }
+    #endregion
 }
