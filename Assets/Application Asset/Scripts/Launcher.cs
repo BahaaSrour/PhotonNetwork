@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
+
 public class Launcher : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject connectedScreen;
@@ -18,5 +20,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         connectedScreen.SetActive(true);
     }
 
-   
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        connectedScreen.SetActive(false);
+        disconnectedScreen.SetActive(true);
+    }
 }
