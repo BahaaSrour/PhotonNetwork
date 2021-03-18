@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 1370431179}
   - component: {fileID: 1370431181}
   - component: {fileID: 1370431180}
+  - component: {fileID: 1370431182}
   m_Layer: 5
   m_Name: ConnectScreen
   m_TagString: Untagged
@@ -752,6 +753,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370431178}
   m_CullTransparentMesh: 0
+--- !u!114 &1370431182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370431178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2a4a799932f6e4e8f8386847eba4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedScreen: {fileID: 0}
+  disconnectedScreen: {fileID: 0}
 --- !u!1 &1576423950
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576423951}
+  - component: {fileID: 1576423952}
   m_Layer: 0
   m_Name: Launcher
   m_TagString: Untagged
@@ -782,6 +798,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576423952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576423950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2a4a799932f6e4e8f8386847eba4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedScreen: {fileID: 844156668}
+  disconnectedScreen: {fileID: 881192473}
 --- !u!1 &1709372515
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +893,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1709372518}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1576423952}
+        m_MethodName: OnClick_ConnectBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1709372518
 MonoBehaviour:
   m_ObjectHideFlags: 0
